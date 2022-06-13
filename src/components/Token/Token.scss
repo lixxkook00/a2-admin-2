@@ -1,0 +1,39 @@
+.token{
+    margin: 20px 0;
+
+    &-title,
+    &-date{
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 14px;
+    }
+
+    &-process{
+        margin: 4px 0;
+
+        .progress{
+            border-radius: 0.75rem;
+            background-color: #d1d2d3;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .progress-bar{
+            background-color: #049745;
+        }
+
+    }
+    
+    &-view{
+        width: 100%;
+        margin-top: 8px;
+        text-align: center;
+        background-color: #BDBEBC;
+        color: #fff;
+        transition: all 0.5s ease-in-out;
+
+        &:hover{
+            cursor: pointer;
+            background-color: #05341a;
+        }
+    }
+}
