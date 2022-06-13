@@ -1,9 +1,5 @@
-
 import Web3 from "web3";
 import { vestingContract,contractABI} from "./contractInfo";
-
-
-
 
 export const Web3Provider = async () => { 
    const result = new Web3(new Web3.providers.HttpProvider('https://bsc-dataseed.binance.org/'));
@@ -16,7 +12,6 @@ export const SMContract = async (contractAddress) => {
     const sm =new web3.eth.Contract(contractABI, contractAddress);
     return sm;
 }
-
 // 0x178e3a597850ffCAf7c6CDf1Bce378f6Baf3bEEb
 
 export const getLockData = async(walletLock) => { 
@@ -33,4 +28,5 @@ export const getLockData = async(walletLock) => {
         // console.log(arr);
     return arr;
 }
+
 

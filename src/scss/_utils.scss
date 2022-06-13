@@ -3,6 +3,16 @@ img{
     width: 100%;
     height: auto;
 }
+a{
+    display: block;
+    color: unset;
+
+    &:hover{
+        color: #fff;
+        text-decoration: none;
+
+    }
+}
 
 // inline class
 
@@ -10,6 +20,11 @@ img{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.primary-text{
+    color: #024a23;
+    font-weight: 700;
 }
 
 // custom
