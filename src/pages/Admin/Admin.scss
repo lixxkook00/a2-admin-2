@@ -27,6 +27,9 @@
         font-size: 20px;
         text-align: center;
         font-weight: 700;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .total-token{
