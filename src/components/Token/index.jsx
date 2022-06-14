@@ -19,10 +19,10 @@ export default function Token({data,index}) {
             var m = Math.floor(seconds % 3600 / 60);
             var s = Math.floor(seconds % 60);
 
-            var dDisplay = d > 0 ? d + (d == 1 ? " day, " : " days, ") : "0 days";
-            var hDisplay = h > 0 ? h + (h == 1 ? " hour, " : " hours, ") : "0 hours";
-            var mDisplay = m > 0 ? m + (m == 1 ? " minute, " : " minutes, ") : "0 minutes";
-            var sDisplay = s > 0 ? s + (s == 1 ? " second" : " seconds") : "0 seconds";
+            var dDisplay = d > 0 ? d + (d === 1 ? " day, " : " days, ") : "0 days";
+            var hDisplay = h > 0 ? h + (h === 1 ? " hour, " : " hours, ") : "0 hours";
+            var mDisplay = m > 0 ? m + (m === 1 ? " minute, " : " minutes, ") : "0 minutes";
+            var sDisplay = s > 0 ? s + (s === 1 ? " second" : " seconds") : "0 seconds";
             return dDisplay + hDisplay + mDisplay + sDisplay;
         }
 
@@ -36,6 +36,8 @@ export default function Token({data,index}) {
     let percentLeft = ((( DDAY.getTime() - new Date().getTime() ) / 1000/(DDAY.getTime()/1000))*1000).toFixed(0)
 
     const linkView = `https://bscscan.com/address/${vestingContract[index].vestingContract}`
+
+    let dollarUSLocale = Intl.NumberFormat('en-US');
   return (
     <div className="col-xl-6">
         <div className="token">
@@ -45,7 +47,7 @@ export default function Token({data,index}) {
                     Unlock countdown
                 </div>
                 <div className="total-token">
-                    {data.Data.amount/1000000} AZT
+                    {dollarUSLocale.format(data.Data.amount/1000000)} AZT
                 </div>
             </div>
 

@@ -1,12 +1,12 @@
 import React,{useState,useEffect} from 'react'
-import './Admin.scss'
+import './LockedToken.scss'
 
 import {useParams} from 'react-router-dom'
 import {getLockData} from '../../utils/Data'
 
 import Token from '../../components/Token'
 
-export default function Admin() {
+export default function LockedToken() {
     const [lockedData, setLockedData] = useState('');
     const [amount,setAmount] = useState(0)
 
@@ -28,6 +28,8 @@ export default function Admin() {
         load();
     },[])
 
+    let dollarUSLocale = Intl.NumberFormat('en-US');
+
   return (
     <div className="admin">
         <div className="container">
@@ -47,7 +49,7 @@ export default function Admin() {
                <div className="col-xl-12 admin-subtitle">
                    Locked AZT Tokens  
                    <span className="primary-text">
-                        {"  " + amount + " AZT"}
+                        {"  " + dollarUSLocale.format(amount) + " AZT"}
                    
                         {
                                 _addressWallet === "0x658bAD8f6C8E2Bca55aCE922D5530fc152ff8644"
@@ -60,7 +62,7 @@ export default function Admin() {
                </div>
 
                {
-                lockedData != ''
+                lockedData !== ''
                 ?
                  lockedData.map((item,index) => {
                     console.log(item)
