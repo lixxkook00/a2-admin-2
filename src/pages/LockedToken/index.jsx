@@ -16,19 +16,20 @@ export default function LockedToken() {
         const x = await getLockData(_addressWallet);
         return x;
     }
+
     useEffect(() => { 
         async function load() { 
             let x = await getLockedDataByAddress();
-            // console.log('aaa',x);
             
-            setLockedData(x)
-
-            setAmount((x[0].Data.amount/1000000)*20)
+            await setLockedData(x)
+            setAmount((x[0].Data.amount/Math.pow(10,8))*20)
         }
         load();
     },[])
 
     let dollarUSLocale = Intl.NumberFormat('en-US');
+
+    
 
   return (
     <div className="admin">
@@ -65,7 +66,7 @@ export default function LockedToken() {
                 lockedData !== ''
                 ?
                  lockedData.map((item,index) => {
-                    console.log(item)
+                    console.log(item.Data)
                     return (
                         <Token key={index} data={item} index={index}/>
                     )
